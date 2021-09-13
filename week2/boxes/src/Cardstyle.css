@@ -1,0 +1,8 @@
+/* style={{width: 400, color: 'red',  backgroundColor: 'blue'}} */
+.card{
+    width: 300px;
+    border: solid black;
+    text-align: center;
+    display: inline-block;
+    margin: 10px;
+}
