@@ -25,10 +25,17 @@ function App() {
     setToDoList(copy);
   }
 
+  const remove = (id) =>{
+    let copy = [...toDoList];
+    let fillteredCopy = copy.filter((value,index,arr) => value.id !== id)
+    setToDoList(fillteredCopy)
+    };
+    
+
   return (
     <div className="App">
       <Header />
-      <ToDoList toDoList={toDoList} handleToggle={handleToggle} />
+      <ToDoList toDoList={toDoList} handleToggle={handleToggle} remove={remove} />
       <ToDoForm addTask={addTask}/>
     </div>
   );
