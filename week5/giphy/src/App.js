@@ -41,14 +41,8 @@ const useEffectForm = () =>{
       
       <div>
         {
-        
-       
-          gif.map((item, index) => <div className='gif' key={index}><img src={item.url} alt=''/></div>)
-      
-
-        
-        
-
+          gif.length !== 0 &&
+          gif.map((item, index) => <div className='gif' key={index}><img src={item.images.original.url} alt=''/></div>)
         }
       </div>      
     </div>
