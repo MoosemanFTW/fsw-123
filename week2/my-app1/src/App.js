@@ -1,8 +1,8 @@
 import {list} from './Store'
-import Todo from "./Todo";
+import TodoList from "./TodoList";
 const App = () => {
   return (
-    <Todo list={list} />
+    <TodoList list={list} />
   ); 
 }
 

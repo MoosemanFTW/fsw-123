@@ -1,5 +1,5 @@
 
-const Todo = ({list}) =>{
+const TodoList = ({list}) =>{
     const newList = list.map((item, index) =>{
         return(
             <li key={index}>{item.desc}</li>
@@ -9,4 +9,4 @@ const Todo = ({list}) =>{
         <ul>{newList}</ul>
     )
 }
-export default Todo
+export default TodoList

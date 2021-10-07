@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import {Data} from "./Data"
-// import data from "./data.json";
 import ToDo from "./ToDo";
 import Header from './Header';
 import ToDoList from "./ToDoList";
@@ -27,7 +26,7 @@ function App() {
 
   const remove = (id) =>{
     let copy = [...toDoList];
-    let fillteredCopy = copy.filter((value,index,arr) => value.id !== id)
+    let fillteredCopy = copy.filter((value) => value.id !== id)
     setToDoList(fillteredCopy)
     };
     

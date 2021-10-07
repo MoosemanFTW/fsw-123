@@ -1,15 +1,29 @@
-import ToDoList from "./ToDoList";
-import { Remove } from "./Remove";
+
  
-const ToDo = ({todo}) => {
-    
-   return (
-       <div className={todo.complete ? "strike" : ""}>
-           <input type="checkbox" id={todo.id} name={todo.desc} value={todo.desc}/>
-           {todo.desc}
-           <button id = {todo.id} onClick={Remove}>X</button>
-       </div>
-   );
+const ToDo = ({todo, handleToggle, remove}) => {
+
+    const handleClick = (e) => {
+        e.preventDefault()
+        handleToggle(e.currentTarget.id)
+    }
+
+    const completeTodo = (id) => {
+        handleToggle(id)
+    }
+
+    const deleteTodo = (id) => {
+        remove(id)
+    }
+
+    return (
+        <div>
+            <input type="checkbox" checked={todo.complete} onChange={() => completeTodo(todo.id)} />
+            <div id={todo.id} key={todo.id + todo.desc} name="todo" value={todo.id} onClick={handleClick} className={todo.complete ? "todo strike" : "todo"}>
+                {todo.desc}
+            </div>
+            <button value={todo.id} onClick={() => deleteTodo(todo.id)}>X</button>
+        </div>
+    );
 };
- 
+
 export default ToDo;
