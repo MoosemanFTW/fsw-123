@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react"
 import axios from "axios"
+import './App.css'
 const useEffectForm = () =>{
   const [search, setSearch] = useState('dog');
   const [gif, setGif] = useState([])
@@ -8,7 +9,7 @@ const useEffectForm = () =>{
 //https://api.giphy.com/v1/gifs/search?api_key=QCAkuioqUnyrmHRgaXLABNeR3OmMPQ0P&q=dog&limit=1
   useEffect(() =>{
     axios.get('https://api.giphy.com/v1/gifs/search?api_key=QCAkuioqUnyrmHRgaXLABNeR3OmMPQ0P&q=dog&limit=2')
-    .then(res =>{setGif(res.data)
+    .then(res =>{setGif(res.data.data)
     console.log(res.data)})
     .catch(err => console.log(err))
     
@@ -16,7 +17,7 @@ const useEffectForm = () =>{
 
   const getGif = () =>{
     axios.get(url)
-    .then(res =>{setGif(res.data)})
+    .then(res =>{setGif(res.data.data)})
     .catch(err => console.log(err))
   }
 
@@ -34,8 +35,8 @@ const useEffectForm = () =>{
   //gif.map((item, index) => <div className='gif' key={index}><img src={item.url} alt=''/></div>)
 
   return(
-    <div>
-      <h1>title</h1>
+    <div className='container'>
+      <h1>Giphy Search</h1>
       <input type='text' value={search} onChange={handleChange} />
       <button onClick={clickEvent}>Search Giphy</button>
       

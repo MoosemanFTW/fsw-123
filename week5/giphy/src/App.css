@@ -1,7 +1,12 @@
-.App {
+.gif {
   text-align: center;
+  display: inline;
 }
 
+.container{
+  text-align: center;
+  align-content: center;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
