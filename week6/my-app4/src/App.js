@@ -9,7 +9,9 @@ import { v4 as uuidv4 } from 'uuid';
 
 function App() {
   
-  const [ toDoList, setToDoList ] = useState(Data);
+  const [toDoList, setToDoList ] = useState(Data);
+  const [isEditing, setIsEditing] = useState(false)
+  const [currentTodo, setCurrentTodo] =useState({})
 
   const handleToggle = (id) => {
     let mapped = toDoList.map(desc => {
@@ -27,16 +29,27 @@ function App() {
 
   const remove = (id) =>{
     let copy = [...toDoList];
-    let fillteredCopy = copy.filter((value,index,arr) => value.id !== id)
+    let fillteredCopy = copy.filter((value) => value.id !== id)
     setToDoList(fillteredCopy)
     };
-    
+  
+  const handleEditInputChange = (e) =>{
+    setCurrentTodo({...currentTodo, desc:e.target.value})
+  };
+
+  const handleEditClick = (todo) =>{
+    setIsEditing(true)
+    setCurrentTodo({...todo})
+  }
+
+  
 
   return (
     <div className="App">
       <Header />
-      <ToDoList toDoList={toDoList} handleToggle={handleToggle} remove={remove} />
       <ToDoForm addTask={addTask}/>
+      <ToDoList toDoList={toDoList} handleToggle={handleToggle} remove={remove} isEditing={isEditing} currentTodo={currentTodo} handleEditInputChange={handleEditInputChange} handleEditClick={handleEditClick} />
+      
     </div>
   );
 }
