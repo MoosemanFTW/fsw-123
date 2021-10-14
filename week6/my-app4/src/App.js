@@ -42,13 +42,20 @@ function App() {
     setCurrentTodo({...todo})
   }
 
+  const editTodo = (id, text) => {
+    const copy = [...toDoList]
+    const index = copy.findIndex(todo => todo.id === id)
+    copy[index].desc = text
+    setToDoList(copy);
+  }
+
   
 
   return (
     <div className="App">
       <Header />
       <ToDoForm addTask={addTask}/>
-      <ToDoList toDoList={toDoList} handleToggle={handleToggle} remove={remove} isEditing={isEditing} currentTodo={currentTodo} handleEditInputChange={handleEditInputChange} handleEditClick={handleEditClick} />
+      <ToDoList toDoList={toDoList} handleToggle={handleToggle} remove={remove} isEditing={isEditing} currentTodo={currentTodo} handleEditInputChange={handleEditInputChange} handleEditClick={handleEditClick} editTodo={editTodo} />
       
     </div>
   );
