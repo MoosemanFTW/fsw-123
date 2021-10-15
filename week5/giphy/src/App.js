@@ -1,12 +1,11 @@
 import {useEffect, useState} from "react"
 import axios from "axios"
 import './App.css'
-const useEffectForm = () =>{
+const App = () =>{
   const [search, setSearch] = useState('dog');
   const [gif, setGif] = useState([])
   const apiKey = 'QCAkuioqUnyrmHRgaXLABNeR3OmMPQ0P'
   const url = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${search}&limit=2`
-//https://api.giphy.com/v1/gifs/search?api_key=QCAkuioqUnyrmHRgaXLABNeR3OmMPQ0P&q=dog&limit=1
   useEffect(() =>{
     axios.get('https://api.giphy.com/v1/gifs/search?api_key=QCAkuioqUnyrmHRgaXLABNeR3OmMPQ0P&q=dog&limit=2')
     .then(res =>{setGif(res.data.data)
@@ -31,9 +30,6 @@ const useEffectForm = () =>{
 
   console.log('gif: ', gif)
 
-  //gif &&
-  //gif.map((item, index) => <div className='gif' key={index}><img src={item.url} alt=''/></div>)
-
   return(
     <div className='container'>
       <h1>Giphy Search</h1>
@@ -50,4 +46,4 @@ const useEffectForm = () =>{
   )
 }
 
-export default useEffectForm;
+export default App;
