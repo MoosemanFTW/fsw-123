@@ -1,11 +1,11 @@
 import ToDo from './ToDo';
 
-const ToDoList = ({toDoList, handleToggle, handleFilter, remove, isEditing, currentTodo, handleEditInputChange, handleEditClick, editTodo}) => {
+const ToDoList = ({toDoList, handleToggle, handleFilter, remove, editTodo}) => {
     return (
         <div>
             {toDoList.map(todo => {
                 return (
-                    <ToDo todo={todo} handleToggle={handleToggle} handleFilter={handleFilter} remove={remove} isEditing={isEditing} currentTodo={currentTodo} handleEditInputChange={handleEditInputChange} handleEditClick={handleEditClick} editTodo={editTodo} />
+                    <ToDo todo={todo} handleToggle={handleToggle} handleFilter={handleFilter} remove={remove} editTodo={editTodo} />
                 )
             })}
             

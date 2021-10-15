@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import {Data} from "./Data"
-// import data from "./data.json";
 import ToDo from "./ToDo";
 import Header from './Header';
 import ToDoList from "./ToDoList";
@@ -10,8 +9,6 @@ import { v4 as uuidv4 } from 'uuid';
 function App() {
   
   const [toDoList, setToDoList ] = useState(Data);
-  const [isEditing, setIsEditing] = useState(false)
-  const [currentTodo, setCurrentTodo] =useState({})
 
   const handleToggle = (id) => {
     let mapped = toDoList.map(desc => {
@@ -19,7 +16,6 @@ function App() {
     });
     setToDoList(mapped);
   }
-
 
   const addTask = (userInput ) => {
     let copy = [...toDoList];
@@ -32,15 +28,6 @@ function App() {
     let fillteredCopy = copy.filter((value) => value.id !== id)
     setToDoList(fillteredCopy)
     };
-  
-  const handleEditInputChange = (e) =>{
-    setCurrentTodo({...currentTodo, desc:e.target.value})
-  };
-
-  const handleEditClick = (todo) =>{
-    setIsEditing(true)
-    setCurrentTodo({...todo})
-  }
 
   const editTodo = (id, text) => {
     const copy = [...toDoList]
@@ -55,7 +42,7 @@ function App() {
     <div className="App">
       <Header />
       <ToDoForm addTask={addTask}/>
-      <ToDoList toDoList={toDoList} handleToggle={handleToggle} remove={remove} isEditing={isEditing} currentTodo={currentTodo} handleEditInputChange={handleEditInputChange} handleEditClick={handleEditClick} editTodo={editTodo} />
+      <ToDoList toDoList={toDoList} handleToggle={handleToggle} remove={remove} editTodo={editTodo} />
       
     </div>
   );

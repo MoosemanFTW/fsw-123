@@ -1,6 +1,6 @@
 import { useState } from "react";
  
-const ToDo = ({todo, handleToggle, remove, isEditing, currentTodo, handleEditInputChange, handleEditClick, editTodo}) => {
+const ToDo = ({todo, handleToggle, remove, editTodo}) => {
 
     const [edit, setEdit] = useState(false)
     const [text, setText] = useState(todo.desc)
