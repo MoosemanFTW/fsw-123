@@ -1,0 +1,54 @@
+body {
+	background: #141414;
+	color: #ffffff;
+}
+.flex-box{
+	display: inline-flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+.header{
+	width: 100%;
+	text-align: center;
+}
+
+.links{
+	color: white;
+	margin: 30px;
+}
+.links:hover{
+	color: purple;
+}
+
+.search-box{
+	margin: 25px;
+	padding: 1px;
+}
+
+.align-center{
+	text-align: center;
+}
+
+.image-container {
+	position: relative;
+}
+
+.image-container:hover {
+	cursor: pointer;
+}
+
+.image-container:hover .overlay {
+	opacity: 1;
+}
+
+.overlay {
+	position: absolute;
+	background: rgba(0, 0, 0, 0.8);
+	width: fit-content;
+	transition: 0.5s ease;
+	opacity: 0;
+	bottom: 0;
+	font-size: 20px;
+	padding: 20px;
+	text-align: center;
+}
