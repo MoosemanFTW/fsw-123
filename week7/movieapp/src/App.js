@@ -8,6 +8,7 @@ import AddFavorites from './components/AddFavorites';
 import RemoveFavorites from './components/RemoveFavorites';
 import HowToUse from './components/HowToUse';
 
+//apikey=469a611a
 const App = () => {
 	const [movies, setMovies] = useState([]);
 	const [Favorites, setFavorites] = useState([]);
